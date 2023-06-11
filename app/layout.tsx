@@ -4,9 +4,12 @@ import { Nunito } from 'next/font/google';
 import Navbar from './components/navbar/Navbar';
 import ClientOnly from './components/ClientOnly';
 import Modal from './components/modals/Modal';
-import RegisterModal from './components/modals/RegisterModal';
 import ToasterProvider from './providers/ToasterProvider';
+
+import RentModal from './components/modals/RentModal';
+import RegisterModal from './components/modals/RegisterModal';
 import LoginModal from './components/modals/LoginModal';
+
 import getCurrentUser from './actions/getCurrentUser';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -31,6 +34,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <ClientOnly>
           <ToasterProvider />
+          <RentModal />
           <LoginModal />
           <RegisterModal />
           <Navbar currentUser={currentUser} />
