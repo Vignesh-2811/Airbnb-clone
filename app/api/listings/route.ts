@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { Prisma } from '@prisma/client';
+import prisma from '@/app/libs/prismadb';
 import getCurrentUser from '@/app/actions/getCurrentUser';
 
 export async function POST(request: Request) {
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     }
   });
 
-  const listing = await prisma?.listing.create({
+  const listing = await prisma.listing.create({
     data: {
       title,
       description,
